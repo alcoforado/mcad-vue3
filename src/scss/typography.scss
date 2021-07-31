@@ -1,0 +1,59 @@
+@use 'sass:map';
+
+$font-weight-values: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 900,
+) !default;
+
+/*
+$fontSize: in rem
+$fontHeight: in rem
+$fontSpace: in em
+$fontWeight: can be thin,light,regular,medium,bold,black
+*/
+@mixin typography($fontSize,$fontHeight,$letterSpace,$fontWeight) {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: Roboto, sans-serif;
+    text-decoration: inherit;
+    text-transform: inherit;
+    letter-spacing: $letterSpace*1rem;
+    font-size:$fontSize*1rem;
+    line-height: $fontHeight*1rem; 
+    font-weight: map-get($font-weight-values, $fontWeight);
+}
+
+h1 {
+    @include typography(6,6,-0.015625,light)
+}
+
+
+h2 {
+    @include typography(3.75rem,3.75rem,-0.0083333333em,light)
+}
+
+h3 {
+    @include typography(3rem,3.125rem,0,regular)
+}
+
+h4 {
+    @include typography(2.125rem,2.5rem,0.0073529412em,regular)
+}
+
+h5 {
+    @include typography(1.5rem,2rem,0,regular)
+}
+
+h6 {
+    @include typography(1.25rem,2rem,0.0125em,medium)
+}
+
+.subtitle1 {
+    @include typography(1rem,1.75rem,0.009375em,medium)
+}
+
+
