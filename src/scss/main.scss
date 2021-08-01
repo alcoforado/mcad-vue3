@@ -1,10 +1,12 @@
 @import "fonts.scss";
 @import "typography.scss";
+@import "icons.scss";
 body {
   height:100%;
   background-color: $background;
   padding: 0;
   margin:0;
+  color: $background-font-color;
 }
 
 

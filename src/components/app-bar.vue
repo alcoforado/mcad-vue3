@@ -1,6 +1,11 @@
 <template>
     <nav class="app-bar">
-        Hello World
+        <span class="panel-left">
+            <button-icon></button-icon>
+         </span>
+          <span class="panel-right">
+            <button-icon></button-icon>
+         </span>
     </nav>
 </template>
 <style lang="scss">

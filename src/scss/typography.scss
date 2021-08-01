@@ -21,15 +21,16 @@ $fontWeight: can be thin,light,regular,medium,bold,black
     font-family: Roboto, sans-serif;
     text-decoration: inherit;
     text-transform: inherit;
-    letter-spacing: $letterSpace*1rem;
-    font-size:$fontSize*1rem;
-    line-height: $fontHeight*1rem; 
+    letter-spacing: $letterSpace;
+    font-size:$fontSize;
+    line-height: $fontHeight; 
     font-weight: map-get($font-weight-values, $fontWeight);
 }
 
 h1 {
-    @include typography(6,6,-0.015625,light)
+    @include typography(6rem,6rem,-0.015625em,light)
 }
+
 
 
 h2 {
@@ -37,7 +38,7 @@ h2 {
 }
 
 h3 {
-    @include typography(3rem,3.125rem,0,regular)
+    @include typography(3rem,3.125rem,0em,regular)
 }
 
 h4 {
@@ -56,4 +57,15 @@ h6 {
     @include typography(1rem,1.75rem,0.009375em,medium)
 }
 
+.body1 {
+    @include typography(1rem,1.5rem,0.03125em,regular)
+}
+
+.body {
+    @include typography(0.875rem,1.25rem,0.0178571429em,regular)
+}
+
+.caption {
+    @include typography(0.75rem,1.25rem,0.0333333333em,regular)
+}
 
