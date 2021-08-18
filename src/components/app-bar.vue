@@ -1,7 +1,7 @@
 <template>
     <nav class="app-bar">
         <span class="panel-left">
-            <button-icon></button-icon>
+            <button-icon icon="menu"></button-icon>
          </span>
           <span class="panel-right">
             <button-icon></button-icon>
@@ -16,5 +16,9 @@
         background-color: $primary;
         color: $primary-font-color;
         vertical-align: center;
+
+        .panel-left {
+            float:left;
+        }
     }
 </style>
