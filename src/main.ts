@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './scss/main.scss'
+import {Ripple} from './directives/ripple'
 const app = createApp(App);
 
 
@@ -33,3 +34,4 @@ function registerAllComponents()
 registerAllComponents();
 
 app.use(store).use(router).mount('#app')
+app.directive('ripple',Ripple)
