@@ -1,14 +1,10 @@
 <template>
-    <div  class="button-icon">
-        <span class="material-icons">{{icon}}</span>
-    </div>
+  
+        <span class="button-icon material-icons">{{icon}}</span>
+    
 </template>
 <style lang="scss">
-.button-icon {
-    border-radius:100px;
-    padding: 5px;
-    cursor: pointer;
-}
+
 </style>
 
 <script lang="ts">

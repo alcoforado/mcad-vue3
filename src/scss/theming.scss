@@ -1,9 +1,12 @@
 @import "pallete.scss";
 @import "mixins.scss";
-
+@use "sass:color";
 $background: #222020;
-$background-font-color: white; 
-$primary: #3a67e2;
+$font-color: white; 
+$primary: $indigo-600;
+$theme: dark;
+$font-color-contrast: rgba(0,0,0,0.3);
+
 $primary-font-color: white;
 $mdc-theme-secondary: #D28900;
 $focus-input-background:rgba(0,0,0,0);
@@ -42,20 +45,11 @@ $unique-color: #3f729b;
 $unique-color-dark: #1c2331;
 $special-color: #37474f;
 $special-color-dark: #263238;
-$white: #ffffff;
-$black: #000000;
-$secondary-color: $deep-orange-500;
-$secondary-color-dark: $deep-orange-700;
-$secondary-color-light: $deep-orange-400;
-// Calculate the contrast ratio between two colors.
-// See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
-$modal-content-border-color: choose-border-color($background, 0.1);
-$modal-footer-border-color: $modal-content-border-color;
-$background-accent: choose-border-color($background, 0.1);
-$background-accent-dark: darken($background, 8%);
 
 
-$btn-padding-y-basic:         .84rem !default;
-$btn-padding-x-basic:         2.14rem !default;
-$btn-font-size-basic:         .81rem !default;
 
+@function if-theme-dark($dark,$light)
+{
+    @if ($theme == dark) { @return $dark; }
+    @else {@return $light}
+}
