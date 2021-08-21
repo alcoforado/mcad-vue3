@@ -14,7 +14,6 @@ function registerAllComponents()
         '@/components',true,/[a-zA-Z]+(-\w+)*.vue$/
     )
     requireComponents.keys().forEach(fileName=>{
-        debugger;
         const componentConfig = requireComponents(fileName);
         var fileEnd=fileName.split("/").pop() as string;
         var fileNoExtension= fileEnd.replace(".vue","");
@@ -33,5 +32,5 @@ function registerAllComponents()
 
 registerAllComponents();
 
-app.use(store).use(router).mount('#app')
 app.directive('ripple',Ripple)
+app.use(store).use(router).mount('#app')

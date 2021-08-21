@@ -1,4 +1,3 @@
-import './VRipple.scss'
 
 import { VNode,Directive,DirectiveBinding } from 'vue'
 // import { consoleWarn } from '../../util/console'
@@ -43,7 +42,7 @@ const calculate = (e: MouseEvent | TouchEvent, el: HTMLElement & WithRippleData,
   const target = isTouchEvent(e) ? e.touches[e.touches.length - 1] : e
   const localX = target.clientX - offset.left
   const localY = target.clientY - offset.top
-
+  debugger;
   let radius = 0
   let scale = 0.3
   if (el._ripple && el._ripple.circle) {
@@ -221,7 +220,8 @@ function removeListeners (el: HTMLElement) {
 }
 
 function directive (el: HTMLElement, binding: DirectiveBinding<any>, node: VNode) {
-  updateRipple(el, binding, false)
+    debugger;
+    updateRipple(el, binding, false)
 
   
 }
@@ -240,10 +240,9 @@ function update (el: HTMLElement, binding: DirectiveBinding) {
   updateRipple(el, binding, wasEnabled)
 }
 
-const Ripple:Directive<any,any> = {
+export const Ripple:Directive<any,any> = {
   beforeMount: directive,
   unmounted: unbind,
   updated:update
 }
 
-export default Ripple
