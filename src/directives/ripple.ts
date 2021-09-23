@@ -42,7 +42,6 @@ const calculate = (e: MouseEvent | TouchEvent, el: HTMLElement & WithRippleData,
   const target = isTouchEvent(e) ? e.touches[e.touches.length - 1] : e
   const localX = target.clientX - offset.left
   const localY = target.clientY - offset.top
-  debugger;
   let radius = 0
   let scale = 0.3
   if (el._ripple && el._ripple.circle) {
@@ -220,7 +219,6 @@ function removeListeners (el: HTMLElement) {
 }
 
 function directive (el: HTMLElement, binding: DirectiveBinding<any>, node: VNode) {
-    debugger;
     updateRipple(el, binding, false)
 
   
