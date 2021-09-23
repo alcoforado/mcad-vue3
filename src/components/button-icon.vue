@@ -1,10 +1,13 @@
 <template>
         <button ref="button" v-ripple :class="{selected:showMenu}" v-on:click="clickHandler" class="button-icon material-icons">{{icon}}</button>
-        <span class="menu-container" ref="menuContainer">
-            <menu ref="menu" :style="{top:'0px',left:'0px', 'max-width':anim_width,'max-height':anim_height}" tabindex="1" v-on:blur="fadeMenu" class="pop-menu" v-bind:class="{hidden: !showMenu, 'before-show':startShow,  'menu-fade': fadeOut}">
+      <!--  <span class="menu-container" ref="menuContainer">
+             <menu ref="menu" :style="{top:'0px',left:'0px', 'max-width':anim_width,'max-height':anim_height}" tabindex="1" v-on:blur="fadeMenu" class="pop-menu" v-bind:class="{hidden: !showMenu, 'before-show':startShow,  'menu-fade': fadeOut}">
                 <li>Hello world</li>
-            </menu>
-        </span>
+            </menu> -->
+            <collapsible :show="showMenu">
+                <p> Hello world</p>
+            </collapsible>
+        
 </template>
 <style lang="scss">
 .button-icon {
@@ -95,26 +98,7 @@ export default defineComponent({
     emits: ["click"],
     methods: {
         clickHandler(ev:MouseEvent) {
-            this.$emit('click',ev);
-            debugger;
-            var menuContainer = this.$refs.menuContainer as HTMLBaseElement;
-            const menuContainerRect = menuContainer.getBoundingClientRect();
-            this.$data.width = (this.$refs.menu as HTMLDivElement).offsetWidth;
-            this.$data.height =  (this.$refs.menu as HTMLDivElement).offsetHeight;
-            let y = ev.clientY - menuContainerRect.y;
-            let x = ev.clientX - menuContainerRect.x;
-            this.$data.left = 0+'px';
-            this.$data.top = 0+'px';
-            setTimeout(()=>{
-                (this.$refs.menu as HTMLBaseElement).focus();
-                this.$data.startShow=false;
-                this.$data.anim_width=this.$data.width+'px';
-                this.$data.anim_height=this.$data.height+'px';
-
-            },0);
-            this.$data.showMenu=true;
-            this.$data.anim_width="0px";
-            this.$data.anim_height="0px";
+            this.showMenu=true;       
         },
         fadeMenu() {
             this.$data.fadeOut = true;
